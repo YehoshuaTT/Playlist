@@ -1,14 +1,15 @@
 import React from "react";
-import Layout from "../src/components/Layout/Layout";
-
-import Header from "../Header/Header";
-
+import PlayListContainer from "../PlayListContainer/PlayListContainer";
+import "../Header/header.css"
 
 
 function Main(props) {
 
     return (
-        <div></div>
+        <div className="main" >
+            main
+            <PlayListContainer />
+        </div>
 
     )
 

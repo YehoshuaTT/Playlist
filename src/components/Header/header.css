@@ -1,0 +1,64 @@
+.layout {
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    box-sizing: content-box;
+    justify-content: space-around;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    border: solid black 1px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: bisque;
+    /* width: 98vw; */
+    height: 10vh;
+
+}
+
+.search-input {
+    border: solid black 1px;
+}
+
+.user {
+    border: solid red 1px;
+}
+
+.main {
+    /* width: 98vw; */
+    height: 30vh;
+    color: bisque;
+    background-color: rgb(53, 53, 61);
+    border: solid black 1px;
+}
+
+
+.playlist-container {
+    /* padding: 0.1%; */
+    /* width: 98vw; */
+    height: 28vw;
+    color: rgb(0, 0, 0);
+    background-color: rgb(123, 126, 128);
+    border: solid black 1px;
+}
+
+.playlist {
+    height: 7vh;
+    color: rgb(84, 51, 11);
+    background-color: rgb(148, 135, 121);
+    border: solid black 1px;
+}
+
+.p-l-img {
+    margin-top: 1vh;
+    height: 5vh;
+}
+
+.details {}
+
+.p1 {}
+
+.p2 {}
