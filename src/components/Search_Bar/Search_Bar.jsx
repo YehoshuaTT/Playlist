@@ -1,10 +1,14 @@
 import React from "react";
 import "../Header/header.css"
-function Search_Bar(props) {
+function Search_Bar({ setKeyWord }) {
+
+    const enter = (e) => {
+        if (e.key === 'Enter') setKeyWord(e.target.value)
+    }
 
     return (
         < div >
-            <input type="text" className="search-input" ></input>
+            <input onKeyDown={enter} type="text" className="search-input" ></input>
             search bar
         </div>
 
@@ -14,3 +18,7 @@ function Search_Bar(props) {
 }
 
 export default Search_Bar
+
+
+
+

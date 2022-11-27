@@ -3,12 +3,12 @@ import Search_Bar from "../Search_Bar/Search_Bar"
 import "./header.css"
 import User from "../User/User"
 
-function Header(props) {
+function Header({ setKeyWord }) {
 
     return (
         < div className="header">
             header
-            <Search_Bar />
+            <Search_Bar setKeyWord={setKeyWord} />
             <User />
         </div>
 

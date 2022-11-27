@@ -53,8 +53,11 @@
 }
 
 .p-l-img {
-    margin-top: 1vh;
     height: 5vh;
+}
+
+.the-playlist {
+    height: 100px;
 }
 
 .details {}
