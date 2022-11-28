@@ -2,18 +2,20 @@ import React from "react";
 import Player from "../Player/Player";
 
 function PlayListContainer({ playlist, setToPlay }) {
-
+    const shorter = playlist.slice(0, 15)
 
     return (
         <div className="playlist-container" >
-            {playlist.map((v) => {
+            {shorter.map((v) => {
                 return (
                     <div className="the-playlist" onClick={() => setToPlay(v.id)}>
-                        <img className="p-l-img" src={v.thumbnail.url}></img>
-                        <div>
-                            <div>{v.title}</div>
-                            <div>{v.duration_formatted}</div>
-                            <div>{`views: ${v.views}`}</div>
+                        <div className="p-l-img">
+                            <img className="p-l-img" src={v.thumbnail.url}></img>
+                        </div>
+                        <div className="the-details">
+                            <div className="song-title">{v.title}</div>
+                            <div className="song-durnation">{v.duration_formatted}</div>
+                            <div className="views">{`views: ${v.views.toLocaleString()}`}</div>
                         </div>
                     </div>
                 )

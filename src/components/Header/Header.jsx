@@ -7,7 +7,6 @@ function Header({ setKeyWord }) {
 
     return (
         < div className="header">
-            header
             <Search_Bar setKeyWord={setKeyWord} />
             <User />
         </div>

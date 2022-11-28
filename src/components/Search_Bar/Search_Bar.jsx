@@ -7,9 +7,8 @@ function Search_Bar({ setKeyWord }) {
     }
 
     return (
-        < div >
-            <input onKeyDown={enter} type="text" className="search-input" ></input>
-            search bar
+        < div className="search">
+            <input onKeyDown={enter} type="text" className="search-input" placeholder="Enter your Search"></input>
         </div>
 
     )
