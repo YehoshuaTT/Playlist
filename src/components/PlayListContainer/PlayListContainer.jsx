@@ -1,5 +1,4 @@
 import React from "react";
-import Player from "../Player/Player";
 
 function PlayListContainer({ playlist, setToPlay }) {
     const shorter = playlist.slice(0, 15)
