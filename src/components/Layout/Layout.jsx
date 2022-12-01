@@ -6,7 +6,7 @@ import { useState } from "react";
 import axios from "axios"
 import PlayListContainer from "../PlayListContainer/PlayListContainer";
 
-function Layout(props) {
+function Layout({ setCanLog }) {
 
     const [keyWord, setKeyWord] = useState("חנן בן ארי")
     const [playlist, setPlaylist] = useState([])
@@ -25,21 +25,18 @@ function Layout(props) {
     useEffect(() => {
         axios.request(options).then(function (response) {
             setPlaylist(response.data.results);
-
         }).catch(function (error) {
             console.error(error);
         })
 
     }, [keyWord])
     console.log(playlist);
-
-
     console.log(toPlay);
 
     return (
         <div className="layout" >
-            <Header setKeyWord={setKeyWord} />
-            <Main playlist={playlist} toPlay={toPlay} />
+            <Header setKeyWord={setKeyWord} setCanLog={setCanLog} />
+            <Main toPlay={toPlay} />
             <PlayListContainer playlist={playlist} setToPlay={setToPlay} />
 
 
