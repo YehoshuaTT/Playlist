@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .layout {
@@ -16,6 +17,8 @@
 }
 
 .header {
+    font-family: cursive;
+
     grid-area: header;
     font-weight: 600;
     border: solid black 5px;
@@ -37,7 +40,6 @@ input {
     box-sizing: border-box;
     /* font-size: 85%; */
     text-align: center;
-
 }
 
 .search {
@@ -49,7 +51,6 @@ input {
     border-radius: 1rem;
 }
 
-.user {}
 
 .user-interface:hover {
     zoom: 95%;
@@ -92,6 +93,7 @@ input {
 }
 
 .main {
+    font-family: cursive;
     color: bisque;
     background-color: rgb(53, 53, 61);
     border: solid black 1px;
@@ -106,16 +108,15 @@ input {
 
 }
 
-
 .player-title {
+    margin-top: 3%;
+    font-family: cursive;
     font-size: 100px;
     font-weight: 900;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 10%;
 }
 
 .playlist-container {
-    /* margin-left: auto; */
+    font-family: cursive;
     grid-area: aside;
     border-radius: 0.7rem;
     border: solid black 5px;
@@ -125,16 +126,30 @@ input {
     background-color: rgb(194, 197, 199);
 }
 
+Link {
+
+    margin: 0;
+    padding: 0;
+}
+
 .p-l-img {
     width: 200px;
-    height: 100%;
+    height: 98%;
     padding-right: 1;
     border-radius: 1rem;
     border: solid rgb(255, 255, 255) 1px;
 }
 
+.p-l-img :active {
+    border: solid red 3px;
+}
+
 .the-playlist:hover {
     background-color: darkgrey;
+}
+
+.the-playlist :active {
+    background-color: rgb(129, 129, 129);
 }
 
 .the-playlist {
@@ -148,7 +163,9 @@ input {
 }
 
 .the-details {
-    border: solid black 1px;
+    border-top: solid black 1px;
+    border-right: solid black 2px;
+    border-bottom: solid black 1px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -176,6 +193,14 @@ input {
     margin-right: 10px;
 }
 
+.add-to-playlist {
+    border-top: solid black 1px;
+    border-left: solid black 1px;
+    border-bottom: solid black 1px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
 
 .user-login-interface {
     font-family: cursive;
@@ -183,9 +208,8 @@ input {
     margin-top: 20px;
     padding: 5%;
     border: solid red 2px;
+    border: solid;
     border-radius: 1rem;
-    /* margin-left: 25%;
-    margin-right: 25%; */
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -200,7 +224,6 @@ input {
 
 #login-h4 {
     margin-top: 0;
-    /* font-weight: 100; */
 }
 
 label {
@@ -225,10 +248,7 @@ label {
 button {
     border-radius: 1rem;
     border: 1px gray solid;
-    /* font-size: 15px; */
-    /* padding:1%; */
     margin: 1%;
-    /* width: fit-content; */
 }
 
 #login-button {

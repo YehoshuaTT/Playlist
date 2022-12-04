@@ -1,6 +1,6 @@
 let usersInfo = [{
     email: "a0526741852@gmail.com",
-    password: 65432123456,
+    password: 123,
     fName: "Yehoshua",
     lname: "Tarshish",
     gender: "Male",

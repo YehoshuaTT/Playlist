@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
-import Header from "../Header/Header";
-import Main from "../Main/Main";
-import "../Header/header.css"
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios"
+import Header from "../Header/Header";
 import PlayListContainer from "../PlayListContainer/PlayListContainer";
+import { Outlet } from "react-router-dom";
 
-function Layout({ setCanLog }) {
-
+function Layout({ setCanLog, setMyPlaylist, myPlaylist, playlist, setPlaylist }) {
     const [keyWord, setKeyWord] = useState("חנן בן ארי")
-    const [playlist, setPlaylist] = useState([])
-    const [toPlay, setPlay] = useState("n5illsgvqKA")
-    const setToPlay = (e) => setPlay(e)
+
+
+    console.log(myPlaylist);
 
     const options = {
         method: 'GET',
@@ -31,20 +28,14 @@ function Layout({ setCanLog }) {
 
     }, [keyWord])
     console.log(playlist);
-    console.log(toPlay);
 
     return (
         <div className="layout" >
-            <Header setKeyWord={setKeyWord} setCanLog={setCanLog} />
-            <Main toPlay={toPlay} />
-            <PlayListContainer playlist={playlist} setToPlay={setToPlay} />
-
-
+            <Header setKeyWord={setKeyWord} setCanLog={setCanLog} myPlaylist={myPlaylist} />
+            <Outlet myPlaylist={myPlaylist} />
+            <PlayListContainer playlist={playlist} setMyPlaylist={setMyPlaylist} myPlaylist={myPlaylist} />
         </div>
-
     )
-
-
 }
 
 export default Layout
