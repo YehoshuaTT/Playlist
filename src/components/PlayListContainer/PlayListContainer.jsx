@@ -55,7 +55,7 @@ function PlayListContainer({ numOfPl, playingNow, editPlaylist, setEditPlaylist,
                             <div className="views">{`views: ${v.views.toLocaleString()}`}</div>
                         </Link>
                         <div className="add-to-playlist">
-                            {editPlaylist != null && <button className="a-t-p-button" onClick={() => addSongToPlalist(v)}>+</button>}
+                            {editPlaylist != null && <img title="Add" className="a-t-p-button" width="40px" src='https://www.svgrepo.com/show/142370/add.svg' onClick={() => addSongToPlalist(v)} />}
                         </div>
                     </div>
                 )

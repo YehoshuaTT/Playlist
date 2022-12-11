@@ -9,7 +9,7 @@ function Main({ setNumOfPl, editPlaylist, setEditPlaylist, userPlaylists, numOfP
     return <div className="video-stream">
         {id2 != "myplaylist" ? <h2 className="player-title">Youtube</h2> : null}
         <Routes>
-            <Route path="/myplaylist" element={<MyPlaylist numOfPl={numOfPl} setNumOfPl={setNumOfPl} setPLName={setPLName} PLName={PLName} userPlaylists={userPlaylists} editPlaylist={editPlaylist} setEditPlaylist={setEditPlaylist} setPlayingNow={setPlayingNow} />} />
+            <Route path="/myplaylist/" element={<MyPlaylist numOfPl={numOfPl} setNumOfPl={setNumOfPl} setPLName={setPLName} PLName={PLName} userPlaylists={userPlaylists} editPlaylist={editPlaylist} setEditPlaylist={setEditPlaylist} setPlayingNow={setPlayingNow} />} />
             <Route path="/*" element={<YouTube videoId={id2} className="video-player" />} />
         </Routes>
 

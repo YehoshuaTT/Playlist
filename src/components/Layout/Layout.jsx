@@ -15,7 +15,7 @@ function Layout() {
     const [numOfPl, setNumOfPl] = useState(0)
 
     return (
-        <div>
+        <div className="app-container">
             <Header setUserPlaylists={setUserPlaylists} userPlaylists={userPlaylists} setSearchKeyWord={setSearchKeyWord} searchKeyWord={searchKeyWord} editPlaylist={editPlaylist} setEditPlaylist={setEditPlaylist} />
             <div className="layout">
                 <PlayListContainer numOfPl={numOfPl} userPlaylists={userPlaylists} editPlaylist={editPlaylist} setEditPlaylist={setEditPlaylist} playingNow={playingNow} setPlayingNow={setPlayingNow} PLName={PLName} searchKeyWord={searchKeyWord} />

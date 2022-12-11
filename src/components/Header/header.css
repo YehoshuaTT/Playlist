@@ -2,7 +2,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 200;
+}
 
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
+
+.app-container {
+    max-height: 98vh;
+    height: 98vh;
+    background-image: url("https://www.pxfuel.com/en/desktop-wallpaper-tmypp");
 }
 
 .layout {
@@ -12,19 +37,25 @@
     grid-template-areas:
         "header header"
         "main aside";
-    grid-gap: 0.3em;
-    border-radius: 1rem;
+    grid-gap: 1%;
+    padding-right: 10%;
+    padding-left: 10%;
+    max-height: 80vh;
+
 }
 
 .header {
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
     font-family: cursive;
     grid-area: header;
-    font-weight: 600;
-    border: solid black 5px;
+    font-weight: 200;
+    border: solid black 1px;
     text-align: center;
-    background-color: rgb(193, 26, 26);
+    background-color: rgba(202, 97, 104, 255);
     color: bisque;
-    height: 15vh;
+    height: 15%;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +67,6 @@ input {
     width: 350px;
     height: 40px;
     box-sizing: border-box;
-    /* font-size: 85%; */
     text-align: center;
 }
 
@@ -46,13 +76,12 @@ input {
 }
 
 .search-input {
-    border: 2px solid rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 1rem;
 }
 
-
 .user-interface:hover {
-    background-color: rgb(223, 14, 14);
+    background-color: rgba(202, 97, 104, 255);
     zoom: 99%;
 }
 
@@ -67,14 +96,14 @@ input {
 .user-interface {
     margin-right: 15%;
     height: 80%;
-    background-color: rgb(205, 40, 40);
+    background-color: rgba(202, 97, 104, 255);
     width: 350px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
     padding-bottom: 10px;
-    border: 1px solid black;
+    border: solid rgba(128, 128, 128, 0.29) 1px;
     border-radius: 1rem;
     justify-content: center;
 }
@@ -96,39 +125,51 @@ input {
 }
 
 .user-button {
-    color: rgb(255, 0, 0);
+    color: rgba(202, 97, 104, 255);
     margin-top: 2%;
-    font-weight: 900;
-    /* border-color: beige; */
+    font-weight: 200;
     padding: 12px;
     border-radius: 2rem;
     background-color: rgb(71, 68, 68);
+    font-family: cursive;
+
 }
 
 .user-playlist-button {
-    color: rgb(255, 0, 0);
+    color: rgba(202, 97, 104, 255);
     margin-top: 2%;
-    font-weight: 900;
-    /* border-color: beige; */
+    font-weight: 200;
     padding: 12px;
     border-radius: 2rem;
     background-color: rgb(71, 68, 68);
+    font-family: cursive;
+
+}
+
+.link-to-user {
+    padding: 0px;
+    margin: 0px;
 }
 
 .main {
     font-family: cursive;
     color: bisque;
-    background-color: rgb(53, 53, 61);
-    border: solid black 1px;
+    background-color: rgba(194, 197, 199, 0.187);
 }
 
 .video-stream {
     grid-area: main;
-    /* border: solid black 5px; */
     text-align: center;
-    border-radius: 1rem;
-    background-color: rgb(194, 197, 199);
+    background-color: rgba(194, 197, 199, 0.187);
 
+}
+
+.player-title {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-family: cursive;
+    font-size: 100px;
+    font-weight: 200;
 }
 
 .singal-playlist {
@@ -136,7 +177,7 @@ input {
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
-    border: solid gray 1px;
+    border: solid rgba(128, 128, 128, 0.29) 1px;
     border-radius: 1rem;
 }
 
@@ -149,7 +190,8 @@ input {
 }
 
 .p-l-name {
-    font-weight: 900;
+    font-weight: 200;
+    font-size: x-large;
 
 }
 
@@ -173,22 +215,27 @@ input {
     margin-right: 50%;
 }
 
-.player-title {
-    margin-top: 3%;
-    font-family: cursive;
-    font-size: 100px;
-    font-weight: 900;
-}
+
 
 .playlist-container {
     font-family: cursive;
     grid-area: aside;
-    border-radius: 0.7rem;
-    border: solid black 5px;
-    max-height: 85vmin;
+    max-height: 85vh;
     overflow: hidden;
     overflow-y: scroll;
-    background-color: rgb(194, 197, 199);
+    background-color: rgba(194, 197, 199, 0.187);
+
+
+}
+
+.user-playlists {
+    font-family: cursive;
+    grid-area: aside;
+    max-height: 85vh;
+    overflow: hidden;
+    overflow-y: scroll;
+
+
 }
 
 .p-l-img {
@@ -204,7 +251,7 @@ input {
 }
 
 .the-playlist:hover {
-    background-color: darkgrey;
+    background-color: rgba(211, 208, 208, 0.333);
 }
 
 .the-playlist :active {
@@ -213,31 +260,36 @@ input {
 
 .the-playlist {
     font-size: small;
-    font-weight: 600;
+    font-weight: 200;
     display: flex;
     flex-direction: row-reverse;
     align-content: space-between;
     justify-content: space-between;
     height: 100px;
+    border: solid rgba(128, 128, 128, 0.146) 1px;
+    padding: 1%;
 }
 
 .the-details {
-    border-top: solid black 1px;
-    border-right: solid black 2px;
-    border-bottom: solid black 1px;
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-bottom: 5px;
+    padding: 5px;
 
+
+}
+
+.a-t-p-button {
+    height: 25%;
 }
 
 .song-title {
     margin-top: 2px;
     margin-right: 10px;
     text-align: right;
-    font-weight: 700;
+    font-weight: 200;
     margin-bottom: 1.5%;
+    -webkit-text-size-adjust: auto;
 }
 
 .song-durnation {
@@ -253,12 +305,10 @@ input {
 }
 
 .add-to-playlist {
-    border-top: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
     z-index: 1;
     display: flex;
     align-items: center;
+    margin: 2%;
 }
 
 .user-login-interface {

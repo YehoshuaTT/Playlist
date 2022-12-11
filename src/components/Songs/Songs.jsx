@@ -1,15 +1,13 @@
 import axios from 'axios'
 import React from 'react'
 
-function Songs({ setEditPlaylist, editPlaylist, userPlaylists, numOfPl }) {
-
+function Songs({ setEditPlaylist, editPlaylist, userPlaylists, numOfPl, i }) {
     const removeSong = (song) => {
         let toPush = []
         editPlaylist.forEach((v) => {
             if (v.id != song.id) toPush.push(v)
         })
         setEditPlaylist(toPush)
-        console.log(editPlaylist);
         updateAPlalist(toPush)
     }
 
@@ -23,9 +21,9 @@ function Songs({ setEditPlaylist, editPlaylist, userPlaylists, numOfPl }) {
         const { data } = await axios.put("http://localhost:3001/playlist", updated)
     }
 
-
     return (
-        editPlaylist.map((v) => {
+
+        userPlaylists[i].playlist.map((v) => {
             return (
                 <div className="the-playlist">
                     <div className="p-l-img">
@@ -37,10 +35,9 @@ function Songs({ setEditPlaylist, editPlaylist, userPlaylists, numOfPl }) {
                         <div className="views">{`views: ${v.views.toLocaleString()}`}</div>
                     </div>
                     <div className="add-to-playlist">
-                        <button className="a-t-p-button" onClick={() => { removeSong(v) }} > - </button>
+                        <img title="Remove" className="a-t-p-button" src='https://www.svgrepo.com/show/348454/remove.svg' onClick={() => { removeSong(v) }} />
                     </div>
                 </div>
-
             )
         })
     )
