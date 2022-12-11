@@ -1,41 +1,33 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios"
-import Header from "../Header/Header";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Header from "../Header/Header"
+import Main from "../Main/Main";
 import PlayListContainer from "../PlayListContainer/PlayListContainer";
-import { Outlet } from "react-router-dom";
-
-function Layout({ setCanLog, setMyPlaylist, myPlaylist, playlist, setPlaylist }) {
-    const [keyWord, setKeyWord] = useState("חנן בן ארי")
+import "../Header/header.css"
 
 
-    console.log(myPlaylist);
-
-    const options = {
-        method: 'GET',
-        url: 'https://simple-youtube-search.p.rapidapi.com/search',
-        params: { query: keyWord, safesearch: 'false' },
-        headers: {
-            'X-RapidAPI-Key': '022ffbc35emsh2c9c765cf179ddep115ae8jsn0304f450bce9',
-            'X-RapidAPI-Host': 'simple-youtube-search.p.rapidapi.com'
-        }
-    };
-    useEffect(() => {
-        axios.request(options).then(function (response) {
-            setPlaylist(response.data.results);
-        }).catch(function (error) {
-            console.error(error);
-        })
-
-    }, [keyWord])
-    console.log(playlist);
+function Layout() {
+    const [searchKeyWord, setSearchKeyWord] = useState("חנן בן ארי")
+    const [editPlaylist, setEditPlaylist] = useState([])
+    const [playingNow, setPlayingNow] = useState([])
+    const [PLName, setPLName] = useState(null)
+    const [userPlaylists, setUserPlaylists] = useState([])
+    const [numOfPl, setNumOfPl] = useState(0)
 
     return (
-        <div className="layout" >
-            <Header setKeyWord={setKeyWord} setCanLog={setCanLog} myPlaylist={myPlaylist} />
-            <Outlet myPlaylist={myPlaylist} />
-            <PlayListContainer playlist={playlist} setMyPlaylist={setMyPlaylist} myPlaylist={myPlaylist} />
+        <div>
+            <Header setUserPlaylists={setUserPlaylists} userPlaylists={userPlaylists} setSearchKeyWord={setSearchKeyWord} searchKeyWord={searchKeyWord} editPlaylist={editPlaylist} setEditPlaylist={setEditPlaylist} />
+            <div className="layout">
+                <PlayListContainer numOfPl={numOfPl} userPlaylists={userPlaylists} editPlaylist={editPlaylist} setEditPlaylist={setEditPlaylist} playingNow={playingNow} setPlayingNow={setPlayingNow} PLName={PLName} searchKeyWord={searchKeyWord} />
+                <Routes>
+                    <Route path="/main/*" element={<Main numOfPl={numOfPl} setNumOfPl={setNumOfPl} userPlaylists={userPlaylists} editPlaylist={editPlaylist} setEditPlaylist={setEditPlaylist} setPlayingNow={setPlayingNow} setPLName={setPLName} PLName={PLName} />} />
+                </Routes>
+            </div>
         </div>
-    )
+
+
+    );
 }
+
 
 export default Layout
