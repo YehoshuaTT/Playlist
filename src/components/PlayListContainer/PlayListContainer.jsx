@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function PlayListContainer({ numOfPl, playingNow, editPlaylist, setEditPlaylist, searchKeyWord, setPlayingNow, userPlaylists }) {
+function PlayListContainer({ numOfPl, playingNow, editPlaylist, setEditPlaylist, showSongs, searchKeyWord, setPlayingNow, userPlaylists }) {
 
     const options = {
         method: 'GET',
@@ -49,13 +49,13 @@ function PlayListContainer({ numOfPl, playingNow, editPlaylist, setEditPlaylist,
                         <div className="p-l-img">
                             <img className="p-l-img" src={v.thumbnail.url}></img>
                         </div>
-                        <Link className="the-details" to={`/layout/main/${v.id}`} style={{ textDecoration: 'none', color: "black" }} >
+                        <Link className="the-details" to={`/layout/${v.id}`} style={{ textDecoration: 'none', color: "black" }} >
                             <div className="song-title">{v.title}</div>
                             <div className="song-durnation">{v.duration_formatted}</div>
                             <div className="views">{`views: ${v.views.toLocaleString()}`}</div>
                         </Link>
                         <div className="add-to-playlist">
-                            {editPlaylist != null && <img title="Add" className="a-t-p-button" width="40px" src='https://www.svgrepo.com/show/142370/add.svg' onClick={() => addSongToPlalist(v)} />}
+                            {showSongs && <img title="Add" className="a-t-p-button" width="40px" src='https://www.svgrepo.com/show/142370/add.svg' onClick={() => addSongToPlalist(v)} />}
                         </div>
                     </div>
                 )

@@ -31,11 +31,11 @@
 }
 
 .layout {
+    height: calc(100vh - 10px);
     display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 2fr 2fr;
-    grid-template-areas:
-        "header header"
+    grid-template-rows: auto auto 1fr 2fr auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "header header"
         "main aside";
     grid-gap: 1%;
     padding-right: 10%;
@@ -49,7 +49,6 @@
     margin-left: 10%;
     margin-right: 10%;
     font-family: cursive;
-    grid-area: header;
     font-weight: 200;
     border: solid black 1px;
     text-align: center;
@@ -59,8 +58,9 @@
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row-reverse;
     align-content: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 input {
@@ -72,7 +72,6 @@ input {
 
 .search {
     width: 50%;
-    padding-top: 2%;
 }
 
 .search-input {
@@ -94,30 +93,19 @@ input {
 }
 
 .user-interface {
-    margin-right: 15%;
+    width: 50%;
     height: 80%;
     background-color: rgba(202, 97, 104, 255);
-    width: 350px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
-    padding-bottom: 10px;
-    border: solid rgba(128, 128, 128, 0.29) 1px;
-    border-radius: 1rem;
     justify-content: center;
 }
 
 .user-image {
     width: 80px;
 }
-
-.user-buttons {
-    margin: 0px;
-
-    max-width: max-content;
-}
-
 
 
 .user-button:hover {
@@ -126,35 +114,39 @@ input {
 
 .user-button {
     color: rgba(202, 97, 104, 255);
-    margin-top: 2%;
     font-weight: 200;
-    padding: 12px;
     border-radius: 2rem;
-    background-color: rgb(71, 68, 68);
+    background-color: rgba(194, 197, 199);
     font-family: cursive;
 
 }
 
 .user-playlist-button {
     color: rgba(202, 97, 104, 255);
-    margin-top: 2%;
     font-weight: 200;
-    padding: 12px;
     border-radius: 2rem;
-    background-color: rgb(71, 68, 68);
+    background-color: rgba(194, 197, 199);
     font-family: cursive;
-
+    width: max-content;
 }
 
-.link-to-user {
-    padding: 0px;
-    margin: 0px;
+.user-playlist-button:hover {
+    background-color: rgb(116, 108, 108);
+}
+
+.username {
+    color: bisque;
 }
 
 .main {
     font-family: cursive;
     color: bisque;
     background-color: rgba(194, 197, 199, 0.187);
+}
+
+.video-player {
+    grid-area: main;
+    padding-top: 30%;
 }
 
 .video-stream {
@@ -164,12 +156,22 @@ input {
 
 }
 
+iframe {
+    width: 100%;
+}
+
 .player-title {
+    text-align: center;
+    grid-area: main;
     margin-top: 3%;
     margin-bottom: 3%;
     font-family: cursive;
     font-size: 100px;
     font-weight: 200;
+}
+
+.singal-playlist:hover {
+    background-color: rgba(211, 208, 208, 0.333);
 }
 
 .singal-playlist {
@@ -179,6 +181,7 @@ input {
     align-items: center;
     border: solid rgba(128, 128, 128, 0.29) 1px;
     border-radius: 1rem;
+    margin-top: 1%;
 }
 
 .p-l-icons {
@@ -200,8 +203,7 @@ input {
     grid-template-columns: 10fr 1fr;
     justify-items: center;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    min-height: 80px;
 }
 
 #pl-input-name {
@@ -215,7 +217,36 @@ input {
     margin-right: 50%;
 }
 
+.new-pl {
+    margin-left: 15%;
+    zoom: 170%;
+}
 
+.new-pl:hover {
+    -webkit-animation: spin 1s linear;
+    -moz-animation: spin 1s linear;
+    animation: spin 1s linear;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+}
 
 .playlist-container {
     font-family: cursive;
@@ -230,11 +261,11 @@ input {
 
 .user-playlists {
     font-family: cursive;
-    grid-area: aside;
+    grid-area: main;
     max-height: 85vh;
     overflow: hidden;
     overflow-y: scroll;
-
+    background-color: rgba(194, 197, 199, 0.187);
 
 }
 
@@ -265,9 +296,23 @@ input {
     flex-direction: row-reverse;
     align-content: space-between;
     justify-content: space-between;
-    height: 100px;
+    /* height: 12%; */
     border: solid rgba(128, 128, 128, 0.146) 1px;
     padding: 1%;
+    margin-top: 1%;
+}
+
+.singal-user-playlist {
+    font-size: small;
+    font-weight: 200;
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: space-between;
+    justify-content: space-between;
+    height: 12%;
+    border: solid rgba(128, 128, 128, 0.146) 1px;
+    padding: 1%;
+    margin-top: 1%;
 }
 
 .the-details {

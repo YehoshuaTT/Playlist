@@ -25,7 +25,7 @@ function Songs({ setEditPlaylist, editPlaylist, userPlaylists, numOfPl, i }) {
 
         userPlaylists[i].playlist.map((v) => {
             return (
-                <div className="the-playlist">
+                <div className="singal-user-playlist">
                     <div className="p-l-img">
                         <img className="p-l-img" src={v.thumbnail.url}></img>
                     </div>

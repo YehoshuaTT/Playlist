@@ -47,7 +47,7 @@ function UserLogin() {
         if (status === 200) {
 
             console.log("great, authenticattion passed")
-            navigate("/layout/main/LHCob76kigA")
+            navigate("/layout/LHCob76kigA")
         }
     }
 

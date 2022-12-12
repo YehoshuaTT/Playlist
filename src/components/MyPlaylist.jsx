@@ -1,24 +1,34 @@
 import Songs from './Songs/Songs';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
-function MyPlaylist({ setNumOfPl, editPlaylist, setUserPlaylists, numOfPl, setEditPlaylist, userPlaylists, setPLName, PLName, setPlayingNow }) {
+function MyPlaylist({ setNumOfPl, editPlaylist, setUserPlaylists, numOfPl, setEditPlaylist, userPlaylists, setPLName, PLName, setPlayingNow, showSongs, setShowSongs }) {
 
+    const [reneder, setRender] = useState(1)
     const [input, setInput] = useState(false)
     const [currEditedPlaylist, setCurrEditedPlaylist] = useState([])
     const [pic, setPic] = useState("https://www.svgrepo.com/show/372563/new.svg")
-    const [showSongs, setShowSongs] = useState(false)
     const navigate = useNavigate()
 
     const editHandeling = (e) => {
         setCurrEditedPlaylist(e)
         setShowSongs(!showSongs)
     }
+    useEffect(() => {
+
+        const showPlaylist = async () => {
+            const token = localStorage.getItem("token")
+            let response = await axios.get(`http://localhost:3001/playlist?token=${token}`)
+            setUserPlaylists(response.data)
+        }
+        showPlaylist()
+    }, [editPlaylist, reneder])
 
     const deletePlaylist = async (i) => {
         if (!window.confirm("This will delete the playlist!"))
             return
+
         let token = localStorage.getItem("token")
         const info = {
             username: token,
@@ -26,6 +36,7 @@ function MyPlaylist({ setNumOfPl, editPlaylist, setUserPlaylists, numOfPl, setEd
         }
         const { data } = await axios.patch(`http://localhost:3001/playlist?token=${token}`, info);
         console.log(data);
+        setRender(reneder + 1)
     }
 
     const picAction = async () => {
@@ -35,16 +46,10 @@ function MyPlaylist({ setNumOfPl, editPlaylist, setUserPlaylists, numOfPl, setEd
 
         if (pic != "https://www.svgrepo.com/show/372563/new.svg") {
             creatPL()
-            showPlaylist()
+
         }
     }
 
-    const showPlaylist = async () => {
-        const token = localStorage.getItem("token")
-        let response = await axios.get(`http://localhost:3001/playlist?token=${token}`)
-        setUserPlaylists(response.data)
-        setInput(5)
-    }
 
     const changePic = () => {
         let a = "https://www.svgrepo.com/show/372563/new.svg";
@@ -62,12 +67,12 @@ function MyPlaylist({ setNumOfPl, editPlaylist, setUserPlaylists, numOfPl, setEd
         }
         const { data } = await axios.post("http://localhost:3001/playlist/", newPL);
         console.log(data);
-
+        setRender(reneder + 1)
     }
 
     const startPlaying = (v) => {
         setPlayingNow(v.playlist)
-        navigate(`/layout/main/${v.playlist[0].id}`)
+        navigate(`/layout/${v.playlist[0].id}`)
     }
 
 
@@ -79,8 +84,7 @@ function MyPlaylist({ setNumOfPl, editPlaylist, setUserPlaylists, numOfPl, setEd
                 <img className='new-pl' width="40px" title="New playlist" src={pic} onClick={() => { picAction() }} />
 
             </div>
-            {userPlaylists.length < 1 ?
-                <h3>your playlist is empty</h3> :
+            {
                 userPlaylists.map((v, i) => {
                     return (<>
                         <div className='singal-playlist'>
@@ -106,9 +110,9 @@ function MyPlaylist({ setNumOfPl, editPlaylist, setUserPlaylists, numOfPl, setEd
                 })
 
 
-
-
             }
+
+
 
         </div >
     )
