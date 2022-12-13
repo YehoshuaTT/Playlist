@@ -1,9 +1,14 @@
-#root {
+
+.app{
+    height: 100hv;
+    width: 100wv;
+background-color:  rgba(128, 128, 128, 0.187) ;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-weight: 200;
+    justify-content: center;
+    justify-items: center;
 }
+
 
 ::-webkit-scrollbar {
     width: 20px;
@@ -50,12 +55,11 @@
     margin-right: 10%;
     font-family: cursive;
     font-weight: 200;
-    border: solid black 1px;
     text-align: center;
     background-color: rgba(202, 97, 104, 255);
     color: bisque;
     height: 15%;
-    border-radius: 1rem;
+    border-radius: 0.3rem;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -75,17 +79,14 @@ input {
 }
 
 .search-input {
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 1rem;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 0.3rem;
 }
 
-.user-interface:hover {
-    background-color: rgba(202, 97, 104, 255);
-    zoom: 99%;
-}
 
+  
 .p-l-img:hover {
-    zoom: 99%;
+    zoom: 100.5%;
 }
 
 .search:hover {
@@ -97,41 +98,41 @@ input {
     height: 80%;
     background-color: rgba(202, 97, 104, 255);
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
+    flex-direction: row;
+    align-content: space-around;
     justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
+
 
 .user-image {
     width: 80px;
+    margin: 2%;
 }
 
 
-.user-button:hover {
-    background-color: rgb(116, 108, 108);
+.link-to-user {
+    color: inherit;
+    text-decoration: none;
+ }
+.user-button:hover, .user-playlist-button:hover{
+    color: black;
+    cursor: pointer
 }
-
 .user-button {
-    color: rgba(202, 97, 104, 255);
-    font-weight: 200;
-    border-radius: 2rem;
-    background-color: rgba(194, 197, 199);
+    color: rgba(194, 197, 199);
+    font-weight: 300;
     font-family: cursive;
-
 }
 
 .user-playlist-button {
-    color: rgba(202, 97, 104, 255);
-    font-weight: 200;
-    border-radius: 2rem;
-    background-color: rgba(194, 197, 199);
+    color: inherit;
+    text-decoration: none;
+    color: rgba(194, 197, 199);
+    font-weight: 300;
     font-family: cursive;
     width: max-content;
-}
-
-.user-playlist-button:hover {
-    background-color: rgb(116, 108, 108);
 }
 
 .username {
@@ -147,6 +148,7 @@ input {
 .video-player {
     grid-area: main;
     padding-top: 30%;
+      background-color: rgba(194, 197, 199, 0.187);
 }
 
 .video-stream {
@@ -173,6 +175,9 @@ iframe {
 .singal-playlist:hover {
     background-color: rgba(211, 208, 208, 0.333);
 }
+.singal-user-playlist:hover {
+    background-color: rgba(211, 208, 208, 0.333);
+}
 
 .singal-playlist {
     display: grid;
@@ -195,7 +200,7 @@ iframe {
 .p-l-name {
     font-weight: 200;
     font-size: x-large;
-
+    justify-self: center;
 }
 
 .start-playing-the-playlist {
@@ -296,7 +301,6 @@ iframe {
     flex-direction: row-reverse;
     align-content: space-between;
     justify-content: space-between;
-    /* height: 12%; */
     border: solid rgba(128, 128, 128, 0.146) 1px;
     padding: 1%;
     margin-top: 1%;
@@ -322,6 +326,10 @@ iframe {
     padding: 5px;
 
 
+}
+
+.play-button {
+    justify-self: center;
 }
 
 .a-t-p-button {
@@ -357,13 +365,15 @@ iframe {
 }
 
 .user-login-interface {
+    height: 100hv;
     font-family: cursive;
-    background-color: rgb(218, 201, 201);
-    margin-top: 20px;
-    padding: 5%;
-    border: solid red 2px;
-    border: solid;
-    border-radius: 1rem;
+    background-color: rgba(202, 97, 104, 255);
+    /* margin: 25%; */
+    margin-top: 38vh;
+    margin-bottom: 32vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    padding: 1%;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -371,13 +381,21 @@ iframe {
 }
 
 #login-h1 {
+    margin-top: 0;
     text-align: center;
     font-family: cursive;
-    margin-bottom: 0;
+    margin-bottom: 1%;
 }
 
 #login-h4 {
     margin-top: 0;
+}
+
+#by{
+    margin-top: 1%;
+margin-bottom: 10%;
+align-self: flex-end;
+padding-right: 0;
 }
 
 label {
@@ -406,19 +424,23 @@ label {
 }
 
 button {
-    border-radius: 1rem;
-    border: 1px gray solid;
-    margin: 1%;
+background-color: rgba(255, 222, 173, 0);
+    border: none;
+font-family: cursive;
+font-weight: 700;
 }
-
+button:hover{
+    color: aliceblue;
+} button:active{
+zoom: 110%;
+}
 #login-button {
+
     margin-top: 5%;
     width: fit-content;
     align-self: center;
 }
 
 .login-input {
-    border: solid black 1px;
-    border-radius: 1em;
     width: fit-content;
 }

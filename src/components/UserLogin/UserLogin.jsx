@@ -15,7 +15,6 @@ function UserLogin() {
 
     const navigate = useNavigate()
 
-
     const canPrees = () => {
         let user = {
             email: email,
@@ -31,8 +30,7 @@ function UserLogin() {
         } else {
             for (let i = 0; i < Object.keys(user).length; i++) {
                 if (user[Object.keys(user)[i]] == "") break
-                if (i == Object.keys(user).length - 1)
-                    setCannotPress(false)
+                if (i == Object.keys(user).length - 1)  setCannotPress(false)
             }
         }
     }
@@ -45,7 +43,6 @@ function UserLogin() {
         const body = response.data
         console.log(status, body)
         if (status === 200) {
-
             console.log("great, authenticattion passed")
             navigate("/layout/LHCob76kigA")
         }
@@ -75,14 +72,13 @@ function UserLogin() {
             localStorage.setItem("token", data.token)
             console.log(data)
             authenticatedRoute()
-
         }
-
     }
 
     return (
         <div className="user-login-interface">
             <h1 id="login-h1">Your Playlist</h1>
+            <h6 id="by">By Yehoshua T.</h6>
             <h4 id="login-h4">login</h4>
             <form id="login-form" onSubmit={handelSubmit}>
                 {currentForm === "Register" ?

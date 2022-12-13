@@ -1,28 +1,39 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect } from 'react'
 
-function Songs({ setEditPlaylist, editPlaylist, userPlaylists, numOfPl, i }) {
+function Songs({ setEditPlaylist, editPlaylist, userPlaylists,setUserPlaylists, numOfPl, i, reneder, setRender }) {
+
+     useEffect(() => {
+        const updateAPlalist = async () => {
+            const updated = {
+                username: localStorage.getItem("token"),
+                title: userPlaylists[numOfPl].title,
+                playlist: editPlaylist
+            }
+            const { data } = await axios.put("http://localhost:3001/playlist", updated)
+        }
+        updateAPlalist()
+    }, [editPlaylist, reneder])
+
+
+    useEffect(() => {
+        const showPlaylist = async () => {
+            const token = localStorage.getItem("token")
+            let response = await axios.get(`http://localhost:3001/playlist?token=${token}`)
+            setUserPlaylists(response.data)
+        }
+        showPlaylist()
+    }, [editPlaylist, reneder])
+
     const removeSong = (song) => {
         let toPush = []
         editPlaylist.forEach((v) => {
             if (v.id != song.id) toPush.push(v)
         })
         setEditPlaylist(toPush)
-        updateAPlalist(toPush)
+        setRender(!reneder)
     }
-
-    const updateAPlalist = async (toPush) => {
-        const updated = {
-            username: localStorage.getItem("token"),
-            title: userPlaylists[numOfPl].title,
-            playlist: toPush
-        }
-
-        const { data } = await axios.put("http://localhost:3001/playlist", updated)
-    }
-
     return (
-
         userPlaylists[i].playlist.map((v) => {
             return (
                 <div className="singal-user-playlist">

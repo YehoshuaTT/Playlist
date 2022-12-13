@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function PlayListContainer({ numOfPl, playingNow, editPlaylist, setEditPlaylist, showSongs, searchKeyWord, setPlayingNow, userPlaylists }) {
+function PlayListContainer({ playingNow, editPlaylist, setEditPlaylist, showSongs, searchKeyWord, setPlayingNow }) {
 
     const options = {
         method: 'GET',
@@ -13,6 +13,7 @@ function PlayListContainer({ numOfPl, playingNow, editPlaylist, setEditPlaylist,
             'X-RapidAPI-Host': 'simple-youtube-search.p.rapidapi.com'
         }
     };
+
     useEffect(() => {
         axios.request(options).then(function (response) {
             setPlayingNow(response.data.results);
@@ -23,22 +24,10 @@ function PlayListContainer({ numOfPl, playingNow, editPlaylist, setEditPlaylist,
     }, [searchKeyWord])
 
     const addSongToPlalist = async (song) => {
-
         let toPush = []
         toPush = [...editPlaylist]
-        if (toPush.length > 0) toPush.forEach((v) => { if (!v.id == song.id) toPush.push(song) })
-        toPush.push(song)
+        if (!toPush.includes(song)) toPush.push(song);
         setEditPlaylist(toPush)
-        updateAPlaylist(toPush)
-    }
-
-    const updateAPlaylist = async (updatedPlaylist) => {
-        const updated = {
-            username: localStorage.getItem("token"),
-            title: userPlaylists[numOfPl].title,
-            playlist: updatedPlaylist
-        }
-        await axios.put("http://localhost:3001/playlist", updated)
     }
 
     return (
