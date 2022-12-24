@@ -81,7 +81,7 @@ function MyPlaylist({ setNumOfPl, editPlaylist, setUserPlaylists, numOfPl, setEd
             </div>
                 {   userPlaylists.map((v, i) => {
                     return (<>
-                        <div className='singal-playlist'>
+                        <div className='singal-playlist' key={i}>
                          
                             <img className='play-button' width="40px" src='https://www.svgrepo.com/show/77159/play.svg' onClick={() => startPlaying(v)} />
                             <div className='p-l-name'>

@@ -21,7 +21,7 @@ function Layout() {
 
     return (
         <div className="app-container">
-            <Header setSearchKeyWord={setSearchKeyWord} />
+            <Header setSearchKeyWord={setSearchKeyWord} userPlaylists={userPlaylists} />
             <div className="layout">
                 <PlayListContainer editPlaylist={editPlaylist} showSongs={showSongs} setEditPlaylist={setEditPlaylist} playingNow={playingNow} setPlayingNow={setPlayingNow} searchKeyWord={searchKeyWord} />
                 {id2 != "myplaylist" ? <h2 className="player-title">Youtube</h2> : null}

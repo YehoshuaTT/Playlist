@@ -32,9 +32,9 @@ function PlayListContainer({ playingNow, editPlaylist, setEditPlaylist, showSong
 
     return (
         <div className="playlist-container" >
-            {playingNow.map((v) => {
+            {playingNow.map((v,i) => {
                 return (
-                    <div className="the-playlist">
+                    <div className="the-playlist" key={i}>
                         <div className="p-l-img">
                             <img className="p-l-img" src={v.thumbnail.url}></img>
                         </div>

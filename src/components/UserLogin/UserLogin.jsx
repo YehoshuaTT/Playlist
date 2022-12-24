@@ -35,19 +35,6 @@ function UserLogin() {
         }
     }
 
-    const authenticatedRoute = async () => {
-        const baseUrl = "http://localhost:3001"
-        const token = localStorage.getItem("token")
-        const response = await axios.get(`${baseUrl}/authRoute?token=${token}`)
-        const status = response.status
-        const body = response.data
-        console.log(status, body)
-        if (status === 200) {
-            console.log("great, authenticattion passed")
-            navigate("/layout/LHCob76kigA")
-        }
-    }
-
     const handelSubmit = async (e) => {
         e.preventDefault()
         const baseUrl = "http://localhost:3001"
@@ -61,18 +48,24 @@ function UserLogin() {
                 gender: gender,
                 dob: dob
             }
-            const { data } = await axios.post(`${baseUrl}/register`, user)
+            const { data } = await axios.post(`${baseUrl}/user/register`, user)
+            console.log(data);
             if (data) setCurrentForm("Login")
         } else {
             const user = {
                 email,
                 password: pass
             }
-            const { data } = await axios.post(`${baseUrl}/login`, user)
-            localStorage.setItem("token", data.token)
-            console.log(data)
-            authenticatedRoute()
+            const  response  = await axios.post(`${baseUrl}/user/login`, user)
+            console.log(response)
+            
+            if (response.status == "200") {
+                localStorage.setItem("token", response.data.token)
+                console.log("great, authenticattion passed")
+                navigate("/layout/LHCob76kigA")
+            }
         }
+        
     }
 
     return (

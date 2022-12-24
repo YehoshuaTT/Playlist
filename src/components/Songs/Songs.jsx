@@ -19,8 +19,8 @@ function Songs({ setEditPlaylist, editPlaylist, userPlaylists,setUserPlaylists, 
     useEffect(() => {
         const showPlaylist = async () => {
             const token = localStorage.getItem("token")
-            let response = await axios.get(`http://localhost:3001/playlist?token=${token}`)
-            setUserPlaylists(response.data)
+            let {data} = await axios.get(`http://localhost:3001/playlist?token=${token}`)
+            setUserPlaylists(data)
         }
         showPlaylist()
     }, [editPlaylist, reneder])

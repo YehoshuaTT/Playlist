@@ -32,7 +32,6 @@ background-color:  rgba(128, 128, 128, 0.187) ;
 .app-container {
     max-height: 98vh;
     height: 98vh;
-    background-image: url("https://www.pxfuel.com/en/desktop-wallpaper-tmypp");
 }
 
 .layout {
@@ -279,7 +278,6 @@ iframe {
     height: 98%;
     padding-right: 1;
     border-radius: 1rem;
-    border: solid rgb(255, 255, 255) 1px;
 }
 
 .p-l-img :active {
